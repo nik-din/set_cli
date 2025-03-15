@@ -80,7 +80,20 @@ int main(){
         vector<array<int, 2>> cor(3);
         for(int i = 0; i<3; i++){
             cin >> cor[i][0] >> cor[i][1];
+            
         }
+        bool duplicates = 0;
+        for(int j = 0; j<3; j++){
+            for(int i = j+1; i<3; i++){
+                if((cor[j][0] == cor[i][0]) || (cor[j][1] == cor[i][1])){
+                    cout << "hai già scelto questa casella\n";
+                    duplicates = 1;
+                    break;
+                }   
+            }
+            if(duplicates) break;
+        }
+        if(duplicates) continue;
         if(set(table[cor[0][0]*4+cor[0][1]], table[cor[1][0]*4+cor[1][1]], table[cor[2][0]*4+cor[2][1]])){
             table[cor[0][0]*4+cor[0][1]] = deck[idx++];
             table[cor[1][0]*4+cor[1][1]] = deck[idx++];

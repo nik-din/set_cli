@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<vector<string>>> figure= {{
+vector<vector<string>> figure= {{
     "       |",
     "   *   |",
     "  ***  |",
