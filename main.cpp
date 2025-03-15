@@ -80,13 +80,16 @@ int main(){
         vector<array<int, 2>> cor(3);
         for(int i = 0; i<3; i++){
             cin >> cor[i][0] >> cor[i][1];
-            
+            if(cor[i][0] >= 3 || cor[i][1] >= 4){
+                i--;
+                cout << "hai scelto una casella non valida\n";
+            }
         }
         bool duplicates = 0;
         for(int j = 0; j<3; j++){
             for(int i = j+1; i<3; i++){
                 if((cor[j][0] == cor[i][0]) || (cor[j][1] == cor[i][1])){
-                    cout << "hai già scelto questa casella\n";
+                    cout << "hai scelto due caselle uguali\n";
                     duplicates = 1;
                     break;
                 }   
