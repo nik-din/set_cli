@@ -91,16 +91,21 @@ int main(){
             }
         }
         for(int i = 0; i<22; i++){
-            cout << mat[i] << '\n';
+            for (int j = 0; j < 33; j++) {
+                if ((j-1) % 8 == 0 && i % 7 != 0) cout << color[table[4*((i-1)/7) + (j-1)/8].color];
+                if ((j-1) % 8 == 7 && i % 7 != 0) cout << none;
+                cout << mat[i][j];
+            }
+            cout << '\n';
         }
     };
 
     copy(deck.begin(), deck.begin()+12, table.begin());
-    
+    cout << "\x1B[2J\x1B[H";
+    output();
     int idx = 12;
     while(idx < 81){
-        cout.clear();
-        output();
+        
         vector<array<int, 2>> cor(3);
         for(int i = 0; i<3; i++){
             cin >> cor[i][0] >> cor[i][1];
@@ -109,12 +114,13 @@ int main(){
             table[cor[0][0]*4+cor[0][1]] = deck[idx++];
             table[cor[1][0]*4+cor[1][1]] = deck[idx++];
             table[cor[2][0]*4+cor[2][1]] = deck[idx++];
+            cout << "\x1B[2J\x1B[H";
+            output();
         }
         else{
             cout << "non è un set\n";
         }
     }
-    cout.clear();
-    output();
+    
     cout << "la partita è (circa) finita\n";
 }
