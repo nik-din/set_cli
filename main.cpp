@@ -88,7 +88,7 @@ int main(){
         bool duplicates = 0;
         for(int j = 0; j<3; j++){
             for(int i = j+1; i<3; i++){
-                if((cor[j][0] == cor[i][0]) || (cor[j][1] == cor[i][1])){
+                if((cor[j][0] == cor[i][0]) && (cor[j][1] == cor[i][1])){
                     cout << "hai scelto due caselle uguali\n";
                     duplicates = 1;
                     break;
